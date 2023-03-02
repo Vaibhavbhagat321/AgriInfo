@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack(){
+            window.history.forward();
+        }
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+          var task = [['Crop Season', 'Season Production'],
+          ['Rabi', {{ rabi }}],
+          ['Kharif', {{ kharif }}],
+          ['Zaid',  {{ zaid }}]];
+
+        var data = google.visualization.arrayToDataTable(task);
+
+        var options = {
+          title: '2021:Crop Production (Season Wise)',
+            is3D:true
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+
+        var dlst = {{ dist | tojson }};
+        var plst = {{ dprod | tojson }};
+        var task1 = [['Crop District', 'District Production']];
+        for(let i=0;i<dlst.length;i++){
+            task1.push([dlst[i][0], Number(plst[i])]);
+        }
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable(task1);
+
+        var options = {
+          title: '2021:Crop Production (District Wise)',
+            is3D:true
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Rabi', 'Kharif', 'Zaid'],
+          ['2019', 1000, 400, 200],
+          ['2020', 1170, 460, 250],
+          ['2021', 660, 1120, 300],
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Year Wise Crop Yeild(Seasonal)',
+            subtitle: 'Rabi, Kharif, and Zaid: 2019-2021',
+          },
+          bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+</head>
+<body>
+    <nav>
+        <label class="logo">AgriInfo</label>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/msp&storage">MSP & Storage</a></li>
+            <li><a href="/expert">Expert</a></li>
+            <li><a href="/faq">FAQ Update</a></li>
+            <li><a href="/crop-info">Crop Info</a></li>
+            <li><a href="/enrollfarmer">Enroll Farmer</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+<div class="home">
+    <div id="piechart" style="width: 950px; height: 500px;"></div>
+    <br><br>
+    <div id="piechart1" style="width: 950px; height: 500px;"></div>
+    <br><br>
+    <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+</div>
+
+</body>
+</html>

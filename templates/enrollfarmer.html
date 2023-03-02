@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack(){
+            window.history.forward();
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <label class="logo">AgriInfo</label>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/msp&storage">MSP & Storage</a></li>
+            <li><a href="/expert">Expert</a></li>
+            <li><a href="/faq">FAQ Update</a></li>
+            <li><a href="/crop-info">Crop Info</a></li>
+            <li><a href="/enrollfarmer">Enroll Farmer</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="enroll-farmer">
+
+        <form action="{{ url_for('enroll_farmer') }}" method="post">
+
+            <h3>Enroll New Farmer</h3>
+
+            <div class="block left-border">
+                <label>Farmer Name</label>
+                <input type="text" name="fname" placeholder="Enter Farmer Name" required>
+
+                <label>Farmer City</label>
+                <input type="text" name="fcity" placeholder="Enter Farmer City" required>
+
+                <label>Farmer District</label>
+                <input type="text" name="fdist" placeholder="Enter Farmer District" required>
+
+                <label>Farmer Mail</label>
+                <input type="email" name="fmail" placeholder="Enter Farmer District" required>
+
+                <label>Farmer Contact mob</label>
+                <input type="number" name="fcont" style="width: 270px;" placeholder="Enter Farmer District" required>
+            </div>
+            <div class="block">
+                <label>Farmer Userid</label>
+                <input type="text" name="fuser" placeholder="Enter Farmer Userid" required>
+
+                <label>Farmer Password</label>
+                <input type="text" name="fpass" placeholder="Enter Farmer Password" required>
+            </div>
+
+
+            <div class="center">
+                <input type="submit" value="Submit">
+            </div>
+            <p style="color: red; font-weight: bold;">{{ msg }}</p>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,884 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+
+#userid, #pass{
+    text-align: left;
+    margin-left: 115px;
+}
+
+.block-height{
+    height: 650px;
+}
+
+/* home page  */
+
+
+body{
+    font-family: sans-serif;
+}
+
+nav{
+    background: #0082e6;
+    width: 100%;
+    height: 90px;
+
+}
+
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+
+a:active, a:hover{
+    background: #1b9bff;
+    transition: .5s;
+}
+
+
+
+/* Login page */
+
+.block{
+    float: left;
+    width: 48%;
+    /* border: solid black 1px; */
+}
+
+.right{
+    text-align: center;
+    padding: 30px 30px;
+    color: blue;
+}
+
+.left{
+    padding: 20px 30px;
+    background: rgb(50, 87, 50);
+    margin: 50px 0 0 50px;
+}
+
+header{
+    height: 80px;
+    width: 100%;
+    background: #1b9bff;
+    text-align: center;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+header p{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+
+
+/* page login block right  */
+
+.right form{
+    margin: 20px 0 0 35px;
+    padding: 30px;
+    padding-top: 80px;
+    background: rgb(50, 87, 50);
+    font-family: sans-serif;
+    height: 440px;
+}
+
+.right form h4{
+    color: white;
+    font-size: 30px;
+}
+
+.right form label{
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+.right form input[type="text"], input[type="password"]{
+    width: 270px;
+    height: 30px;
+    font-size: 15px;
+    background: rgb(56, 92, 56);
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.right input[type="submit"]{
+    height: 30px;
+    width: 100px;
+    margin-top: 20px;
+    border-radius: 15px;
+    margin-left: 65px;
+    margin-top: 40px;
+    background: #fb2525;
+    color: #fff;
+    border: none;
+}
+
+.right input[type="submit"]:hover{
+    color: #000;
+    background: #ffc107;
+    cursor: pointer;
+}
+
+/* page enroll farmers  */
+
+.enroll-farmer{
+    margin: 20px 150px;
+}
+
+
+.enroll-farmer form{
+    margin: 10px;
+    padding: 30px;
+    background: rgb(50, 87, 50);
+    font-family: sans-serif;
+}
+
+.enroll-farmer h3{
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center
+}
+
+.enroll-farmer label{
+    font-size: 15px;
+    text-align: left;
+    margin-left: 100px;
+}
+
+.enroll-farmer .block{
+    text-align: center;
+    height: 380px;
+}
+
+.center{
+    text-align: center;
+}
+
+.left-border{
+    border-right: solid 1px rgb(80, 121, 80);
+}
+
+.enroll-farmer form h4{
+    color: white;
+    font-size: 30px;
+}
+
+.enroll-farmer form label{
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+.enroll-farmer form input[type="text"], input[type="password"]{
+    width: 270px;
+    height: 30px;
+    font-size: 15px;
+    background: rgb(56, 92, 56);
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.enroll-farmer form input[type="email"]{
+    width: 270px;
+    height: 30px;
+    font-size: 15px;
+    background: rgb(56, 92, 56);
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.enroll-farmer input[type="submit"]{
+    height: 30px;
+    width: 100px;
+    margin-top: 20px;
+    border-radius: 15px;
+    margin-left: 65px;
+    margin-top: 40px;
+    background: #fb2525;
+    color: #fff;
+    border: none;
+    height: 30px;
+    width: 150px;
+}
+
+.enroll-farmer input[type="submit"]:hover{
+    color: #000;
+    background: #ffc107;
+    cursor: pointer;
+}
+
+/* page crop-info  */
+
+.crop-info{
+    margin-bottom: 10px;
+}
+
+.left-box{
+    /* height: 500px; */
+    width: 35%;
+    float: left;
+    background: rgb(50, 87, 50);
+    margin: 20px 20px;
+    margin-left: 40px;
+    color: white;
+}
+
+.left-box img{
+    height: 100px;
+    width: 100px;
+    margin-top: 80px;
+    margin-bottom: 0px;
+    margin-left: 200px;
+}
+
+.left-box p{
+    margin: 20px;
+    font-size: 20px;
+    padding-left: 30px;
+}
+
+.p{
+	text-align: center;
+    margin-top: 0px;
+    padding-bottom: 40px;
+}
+
+.right-box{
+    margin: 20px 20px;
+    /* height: 300px; */
+    width: 55%;
+    float: left;
+    background: rgb(50, 87, 50);
+}
+
+.crop-info form{
+    /* margin: 30px; */
+    padding: 30px;
+    padding-left: 60px;
+    background: rgb(50, 87, 50);
+    font-family: sans-serif;
+}
+
+.crop-info h3{
+    color: white;
+    font-size: 30px;
+    margin-top: 20px;
+    text-align: center
+}
+
+.crop-info label{
+    font-size: 15px;
+    text-align: left;
+    /* margin-left: 100px; */
+}
+
+.crop-info form label{
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+.crop-info form input[type="text"], input[type="password"]{
+    width: 80%;
+    height: 30px;
+    font-size: 15px;
+    background: rgb(56, 92, 56);
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.crop-info .block{
+    text-align: center;
+    height: 200px;
+}
+
+
+.crop-info input[type="submit"]{
+    margin-top: 20px;
+    border-radius: 15px;
+    margin-top: 40px;
+    background: #fb2525;
+    color: #fff;
+    border: none;
+    height: 30px;
+    width: 150px;
+}
+
+.crop-info input[type="submit"]:hover{
+    color: #000;
+    background: #ffc107;
+    cursor: pointer;
+}
+
+.crop-info select, input[type="number"]{
+    width: 80%;
+    height: 30px;
+    font-size: 15px;
+    background: rgb(56, 92, 56);
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: rgb(53, 9, 19);
+}
+
+.crop-info input[type="number"]{
+    color: #fff;
+}
+
+
+/* msp&storage page */
+
+.msp_storage{
+    /* background: rgb(50, 87, 50); */
+    color: white;
+    width: 100%;
+    min-height: 100px;
+}
+
+.msp_box, .warehouse_box{
+    background: rgb(50, 87, 50);
+    margin: 50px 100px;
+    /* border: 1px solid black; */
+    /* width: 42%;
+    float: left; */
+    padding: 30px 50px;
+}
+
+/* .msp_box{
+    margin-left: 80px;
+}
+
+.warehouse_box{
+    margin-right: 80px;
+    margin-left: 30px;
+} */
+
+.msp_box table{
+    width: 100%;
+}
+
+.msp_box td, th{
+    text-align: center;
+    padding: 5px;
+}
+
+/* .msp_box table, tr, td, th{
+    border: 1px solid black;
+} */
+
+.msp_box input[type="text"]{
+    border: none;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    padding: 5px;
+    height: 20px;
+    width: 170px;
+    text-align: center;
+}
+
+.msp_box input[type="number"]{
+    border: none;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    padding: 5px;
+    height: 20px;
+    width: 100px;
+    text-align: center;
+}
+
+.msp_box input[type="submit"]{
+    border: none;
+    height: 25px;
+    width: 70px;
+    background: #fb2525;
+    border-radius: 10px;
+    color: white;
+}
+
+.msp_box input[type="submit"]:hover{
+    background: #ffc107;
+    color: black;
+}
+
+.warehouse_box table{
+    width: 100%;
+}
+
+.warehouse_box td, th{
+    text-align: center;
+    padding: 5px;
+}
+
+/* .warehouse_box table, tr, td, th{
+    border: 1px solid black;
+} */
+
+.warehouse_box input[type="text"]{
+    border: none;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    padding: 5px;
+    height: 20px;
+    width: 170px;
+    text-align: center;
+}
+
+.warehouse_box input[type="number"]{
+    border: none;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    padding: 5px;
+    height: 20px;
+    width: 100px;
+    text-align: center;
+}
+
+.warehouse_box input[type="submit"]{
+    border: none;
+    height: 25px;
+    width: 70px;
+    background: #fb2525;
+    border-radius: 10px;
+    color: white;
+}
+
+.warehouse_box input[type="submit"]:hover{
+    background: #ffc107;
+    color: black;
+}
+
+
+
+
+/* crop-info-farmers page  */
+
+
+.msp_storage{
+    /* background: rgb(50, 87, 50); */
+    color: white;
+    width: 100%;
+    min-height: 100px;
+}
+
+.msp_box_farmer, .warehouse_box_farmer{
+    background: rgb(50, 87, 50);
+    margin-top: 50px;
+    /* border: 1px solid black; */
+
+    float: left;
+    padding: 30px 50px;
+}
+
+.msp_box_farmer{
+    margin-left: 80px;
+    width: 35%;
+}
+
+.warehouse_box_farmer{
+    margin-right: 80px;
+    margin-left: 30px;
+    width: 50%;
+}
+
+.msp_box_farmer table{
+    width: 100%;
+}
+
+.msp_box_farmer td, th{
+    text-align: center;
+    padding: 5px;
+}
+
+.msp_box_farmer table, tr, td, th{
+    border: 1px solid black;
+}
+
+.warehouse_box_farmer table{
+    width: 100%;
+}
+
+.warehouse_box_farmer td, th{
+    text-align: center;
+    padding: 5px;
+}
+
+.warehouse_box_farmer table, tr, td, th{
+    border: 1px solid black;
+}
+
+
+/* ask expert farmer page  */
+
+.ask-expert{
+    background: rgb(50, 87, 50);
+    margin: 50px 150px;
+    padding: 20px 50px;
+}
+
+.ask-expert form{
+    text-align: center;
+}
+
+.ask-expert h3{
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center
+}
+
+.ask-expert label{
+    display: block;
+    color: white;
+    font-weight: bold;
+}
+
+.ask-expert textarea{
+    margin-top: 10px;
+}
+
+.ask-expert input[type="submit"]{
+    margin-top: 10px;
+    border: none;
+    height: 25px;
+    width: 70px;
+    background: #fb2525;
+    border-radius: 10px;
+    color: white;
+}
+
+.ask-expert input[type="submit"]:hover{
+    background: #ffc107;
+    color: black;
+}
+
+.ask-expert hr{
+    margin: 20px 0;
+    opacity: 0.3;
+}
+
+.doubt_box{
+    width: 100%;
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid rgb(105, 158, 105);
+    border-radius: 20px;
+    color: white;
+}
+
+.doubt_box hr{
+    color: rgb(80, 121, 80);
+    margin: 10px 0;
+    opacity: 0.1;
+}
+
+
+/* faq farmer page  */
+
+.faq-farmer{
+    background: rgb(50, 87, 50);
+    margin: 50px 150px;
+    padding: 20px 50px;
+}
+
+.faq-farmer h3{
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center
+}
+
+.faq-box{
+    width: 100%;
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid rgb(105, 158, 105);
+    border-radius: 20px;
+    color: white;
+}
+
+.faq-box hr{
+    color: rgb(80, 121, 80);
+    margin: 10px 0;
+    opacity: 0.1;
+}
+
+.faq-farmer hr{
+    color: white;
+    margin: 10px 0;
+    height: 5px;
+    background: white;
+}
+
+.faq-box-form{
+    margin: 30px 20px;
+}
+
+.faq-box-form label{
+    margin: 20px 0;
+    display: block;
+    color: white;
+    font-weight: bold;
+}
+
+.faq-box-form input[type="text"]{
+    width: 90%;
+    height: 30px;
+    font-size: 15px;
+    background: rgb(56, 92, 56);
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.faq-box-form input[type="submit"]{
+    height: 30px;
+    width: 100px;
+    margin-top: 20px;
+    border-radius: 15px;
+    background: #fb2525;
+    color: #fff;
+    border: none;
+}
+
+.faq-box-form input[type="submit"]:hover{
+    color: #000;
+    background: #ffc107;
+    cursor: pointer;
+}
+
+
+/* expert page  */
+
+.expert{
+    background: rgb(50, 87, 50);
+    margin: 50px 150px;
+    padding: 20px 50px;
+}
+
+.expert h3{
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.expert .doubt-box{
+    width: 100%;
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid rgb(105, 158, 105);
+    border-radius: 20px;
+    color: white;
+}
+
+.doubt-box p{
+    margin: 10px 0 10px 0;
+}
+
+.doubt-box hr{
+    color: rgb(80, 121, 80);
+    margin: 10px 0;
+    opacity: 0.1;
+}
+
+.doubt-box input[type="submit"]{
+    height: 30px;
+    width: 100px;
+    margin: 10px 0 10px 0;
+    border-radius: 15px;
+    background: #fb2525;
+    color: #fff;
+    border: none;
+}
+
+.doubt-box input[type="submit"]:hover{
+    color: #000;
+    background: #ffc107;
+    cursor: pointer;
+
+
+}
+
+
+
+/* ---------------------------------  */
+
+.crop-info-far{
+    background: rgb(50, 87, 50);
+    margin: 50px 150px;
+    padding: 20px 50px;
+}
+
+.crop-info-far h3{
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.crop-info-far form label{
+    display: block;
+    color: white;
+    padding: 20px 0 10px 0;
+}
+
+.crop-info-far select{
+    background: rgb(56, 92, 56);
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    width: 90%;
+    height: 30px;
+}
+
+.crop-info-far input[type="submit"]{
+    height: 30px;
+    width: 100px;
+    margin: 20px 0 10px 0;
+    border-radius: 15px;
+    background: #fb2525;
+    color: #fff;
+    border: none;
+}
+
+.crop-info-far input[type="submit"]:hover{
+    color: #000;
+    background: #ffc107;
+    cursor: pointer;
+}
+
+.crop-info-far hr{
+    color: white;
+    margin: 10px 0;
+    height: 5px;
+    background: white;
+}
+
+.crop-info-far table{
+    margin-top: 30px;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.575);
+}
+
+.crop-info-far td{
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.336);
+    border-right: 1px solid rgba(0, 0, 0, 0.336);
+    height: 30px;
+    width: 33%;
+    text-align: center;
+}
+
+.crop-info-far th{
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.336);
+    border-right: 1px solid rgba(0, 0, 0, 0.336);
+    height: 30px;
+    width: 33%;
+    text-align: center;
+}
+
+
+
+.home{
+    background: rgb(50, 87, 50);
+    margin: 50px 150px;
+    padding: 20px 50px;
+}
+
+
+.home table{
+    margin-top: 30px;
+    width: 100%;
+    color: white;
+}
+
+.home td{
+    border: none;
+    border: 1px solid black;
+    height: 30px;
+    width: 33%;
+    text-align: center;
+}
+
+.home th{
+    border: none;
+    border: 1px solid black;
+    height: 30px;
+    width: 33%;
+    text-align: center;
+}
+
+
+.pesticides{
+    background: rgb(50, 87, 50);
+    margin: 50px 150px;
+    padding: 20px 50px;
+    color: white;
+}
+
+.head{
+    font-weight: bold;
+}
+
+.sol{
+    margin: 10px 10px 10px 10px;
+}
+
+.pesticides hr{
+    margin: 20px 0;
+    opacity: 0.3;
+}
+
+.pesticides ul{
+    margin: 10px 10px 10px 20px;
+}

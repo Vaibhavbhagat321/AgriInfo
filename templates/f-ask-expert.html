@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ask Expert</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack(){
+            window.history.forward();
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <label class="logo">AgriInfo</label>
+        <ul>
+            <li><a href="/fhome">Home</a></li>
+            <li><a href="/fcrop-info">Crop Info</a></li>
+            <li><a href="/fask-expert">Ask Expert</a></li>
+            <li><a href="/ffaq">FAQ</a></li>
+            <li><a href="/pesticide">Pesticide</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="ask-expert">
+        <form action="{{ url_for('f_ask_expert') }}" method="post">
+            <h3>Farmer Crop Information</h3>
+            <label style="margin-top: 40px;">Ask your doubt to expert</label>
+            <textarea name="txtarea"  rows="5"  style="width: 90%;"></textarea><br>
+            <input type="submit" value="Post">
+            <p style="color: red; font-weight: bold;">{{ msg }}</p>
+        </form>
+        <hr>
+        <label> Recent history</label>
+        {% for items in rec %}
+            <div class="doubt_box">
+                <div class="doubt"><span style="font-weight: bold;">Doubt : </span>{{ items[0] }}</div>
+                <hr>
+                {% if items[1] == None %}
+                    <div class="doubt_sug"><span style="font-weight: bold;">Suggation : </span>Update Pending...</div>
+                {% endif %}
+                {% if items[1] != None %}
+                    <div class="doubt_sug"><span style="font-weight: bold;">Suggation : </span>{{ items[1] }}</div>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

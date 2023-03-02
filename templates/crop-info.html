@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MSP & Warehouse Storage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack(){
+            window.history.forward();
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <label class="logo">AgriInfo</label>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/msp&storage">MSP & Storage</a></li>
+            <li><a href="/expert">Expert</a></li>
+            <li><a href="/faq">FAQ Update</a></li>
+            <li><a href="/crop-info">Crop Info</a></li>
+            <li><a href="/enrollfarmer">Enroll Farmer</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="crop-info-far">
+        <h3>Crop Info</h3>
+        <form action="{{ url_for('crop_info') }}" method="post">
+            <label>Choose District</label>
+
+            <select name="district" required>
+                {% for dist in d %}
+                    <option value="{{ dist[0] }}">{{ dist[0] }}</option>
+                {% endfor %}
+            </select>
+
+
+
+            <label>Choose Year</label>
+
+            <select name="year" required>
+                {% for year in y %}
+                    <option value="{{ year[0] }}">{{ year[0] }}</option>
+                {% endfor %}
+            </select>
+            <div>
+                <input type="submit" value="Search">
+            </div>
+        </form>
+        <hr>
+        <table>
+            <tr>
+                <th>Crop</th>
+                <th>Crop Season</th>
+                <th>Crop Produced</th>
+            </tr>
+            {% for item in rec %}
+                 <tr>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                 </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</body>
+</html>

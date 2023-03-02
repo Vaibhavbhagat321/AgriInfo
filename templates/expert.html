@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Expert</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack(){
+            window.history.forward();
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <label class="logo">AgriInfo</label>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/msp&storage">MSP & Storage</a></li>
+            <li><a href="/expert">Expert</a></li>
+            <li><a href="/faq">FAQ Update</a></li>
+            <li><a href="/crop-info">Crop Info</a></li>
+            <li><a href="/enrollfarmer">Enroll Farmer</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="expert">
+        <h3>Farmer Doubts</h3>
+        {% for item in rec %}
+            <div class="doubt-box">
+                <p><span style="font-weight: bold;">Doubt: </span> {{ item[0] }}</p>
+                <p><span style="font-weight: bold;">user: </span> {{ item[2] }}</p>
+                <hr>
+                {% if item[1] == None %}
+                    <p><span style="font-weight: bold;">Suggation:</span></p>
+                    <form action="{{ url_for('expert') }}" method="post">
+                        <input type="hidden" name="doubt" value="{{ item[0] }}">
+                        <textarea name="sug" rows="3" style="width: 90%;" required></textarea><br>
+                        <input type="submit" value="Post">
+                    </form>
+                {% endif %}
+                {% if item[1] != None %}
+                    <p><span style="font-weight: bold;">Suggation:</span></p>
+                    <p>{{ item[1] }}</p>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

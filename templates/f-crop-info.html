@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Farmers Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack(){
+            window.history.forward();
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <label class="logo">AgriInfo</label>
+        <ul>
+            <li><a href="/fhome">Home</a></li>
+            <li><a href="/fcrop-info">Crop Info</a></li>
+            <li><a href="/fask-expert">Ask Expert</a></li>
+            <li><a href="/ffaq">FAQ</a></li>
+            <li><a href="/pesticide">Pesticide</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="crop-info">
+
+        <div class="left-box block-height">
+            <img src="{{ url_for('static', filename='user.png') }}" alt="user">
+            <p class="p">{{ rec[3] }}</p>
+            <p>id: {{ rec[5] }}</p>
+            <p>Name : {{ rec[0] }}</p>
+            <p>City : {{ rec[1] }}</p>
+            <p>District : {{ rec[2] }}</p>
+            <p>mail: {{ rec[6] }}</p>
+            <p>userid : {{ rec[3] }}</p>
+
+            <p>Contact No : {{ rec[7] }}</p>
+        </div>
+
+        <div class="right-box block-height">
+            <h3>Fill Crop Information</h3>
+            <form action="{{ url_for('f_crop_info') }}" method="post">
+                <label>Farmer Name</label>
+                <input type="text" name="fname" value="{{ rec[0] }}" placeholder="Enter Farmer Name" required readonly>
+
+                <label>Farmer City</label>
+                <input type="text" name="fcity" value="{{ rec[1] }}" placeholder="Enter Farmer City" required readonly>
+
+                <label>Farmer District</label>
+                <input type="text" name="fdist" value="{{ rec[2] }}" placeholder="Enter Farmer District" required readonly>
+
+                <label>Farmer Crop</label>
+                <select name="fcrop" style="color: white" required>
+                    {% for item in crop %}
+                        <option value="{{ item[0] }}">{{ item[0] }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Farmer Season</label>
+                <select name="fseason" style="color: white" required>
+                    <option value="Rabi">Rabi</option>
+                    <option value="Kharif">Kharif</option>
+                    <option value="Zaid">Zaid</option>
+                </select>
+
+                <label>Quatity of Crop</label>
+                <input type="number" name="fqty" placeholder="Enter Production" required>
+
+                <div class="center">
+                    <input type="submit" value="Submit">
+                </div>
+                <p style="color: red; font-weight: bold;">{{ msg }}</p>
+            </form>
+        </div>
+</body>
+</html>

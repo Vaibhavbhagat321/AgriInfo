@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Farmers Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack(){
+            window.history.forward();
+        }
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+          var task = [['Crop Season', 'Season Production'],
+          ['Rabi', {{ rabi }}],
+          ['Kharif', {{ kharif }}],
+          ['Zaid',  {{ zaid }}]];
+
+        var data = google.visualization.arrayToDataTable(task);
+
+        var options = {
+          title: '2021:Crop Production (Season Wise)',
+            is3D:true
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+    <nav>
+        <label class="logo">AgriInfo</label>
+        <ul>
+            <li><a href="/fhome">Home</a></li>
+            <li><a href="/fcrop-info">Crop Info</a></li>
+            <li><a href="/fask-expert">Ask Expert</a></li>
+            <li><a href="/ffaq">FAQ</a></li>
+            <li><a href="/pesticide">Pesticide</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+<div class="home">
+    <table>
+        <tr>
+            <th colspan="2">MSP</th>
+        </tr>
+        <tr>
+            <th>Crop</th>
+            <th>Crop MSP</th>
+        </tr>
+        {% for item in msp %}
+                 <tr>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                 </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <div id="piechart" style="width: 950px; height: 500px;"></div>
+</div>
+</body>
+</html>

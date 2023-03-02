@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FAQ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack(){
+            window.history.forward();
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <label class="logo">AgriInfo</label>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/msp&storage">MSP & Storage</a></li>
+            <li><a href="/expert">Expert</a></li>
+            <li><a href="/faq">FAQ Update</a></li>
+            <li><a href="/crop-info">Crop Info</a></li>
+            <li><a href="/enrollfarmer">Enroll Farmer</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="faq-farmer">
+        <h3>FAQ</h3>
+        <div class="faq-box-form">
+            <form action="{{ url_for('faq') }}" method="post">
+                <label>Question</label>
+                <input type="text" name="que" placeholder="Enter your question" required>
+
+                <label>Answer</label>
+                <input type="text" name="ans" placeholder="Enter answer" required>
+
+                <div>
+                    <input type="submit" value="Post">
+                </div>
+                <p style="color: red; font-weight: bold;">{{ msg }}</p>
+            </form>
+        </div>
+        <hr>
+        {% for items in rec %}
+            <div class="faq-box">
+                <div class="faq-qes"><span style="font-weight: bold;"><u>Qus : </u></span>{{ items[0] }}</div>
+            <hr>
+                <div class="faq-sol"><span style="font-weight: bold;"><u>Solution : </u></span>{{ items[1] }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

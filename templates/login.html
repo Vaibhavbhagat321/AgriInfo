@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack(){
+            window.history.forward();
+        }
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        var clst = {{ crop | tojson }};
+        var plst = {{ prod | tojson }};
+        var task = [['Crop', 'Crop Yeild']];
+        for(let i=0;i<clst.length;i++){
+            task.push([clst[i], Number(plst[i])]);
+        }
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable(task);
+
+        var options = {
+          title: '2021:Crop Yeild',
+            is3D: true
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <style>
+        body{
+            background-image: url('../static/farmaer.jpg');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <header><p>AgriInfo</p></header>
+
+    <div class="block left">
+        <div id="piechart" style="width: 585px; height: 400px;"></div>
+    </div>
+
+    <div class="block right">
+        <form action="{{ url_for('index') }}" method="post">
+
+            <h4>Farmer Login</h4>
+
+            <label id="userid">Userid</label>
+            <input type="text" name="userid" placeholder="Enter Userid" required>
+
+            <label id="pass">Passaword</label>
+            <input type="password" name="pass" placeholder="Enter Password" style='width: 270px' required>
+            <p style="color:red; margin-top:10px; font-weight:bold">{{ msg }}</p>
+
+            <div>
+                <input type="submit" value="Login">
+            </div>
+
+
+        </form>
+    </div>
+</body>
+</html>
+
+
+{#,[clst[0], plst[0]],[clst[1], plst[1]],[clst[2], plst[2]],[clst[3], plst[3]],#}
+{#            [clst[4], plst[4]],[clst[6], plst[6]],[clst[7], plst[7]],[clst[8], plst[8]],[clst[9], plst[9]],#}
+{#            [clst[10], plst[10]],[clst[11], plst[11]],[clst[12], plst[12]],[clst[13], plst[13]],#}
+{#            [clst[14], plst[14]],[clst[15], plst[15]],[clst[16],plst[16]],];#}

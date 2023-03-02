@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MSP & Warehouse Storage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack(){
+            window.history.forward();
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <label class="logo">AgriInfo</label>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/msp&storage">MSP & Storage</a></li>
+            <li><a href="/expert">Expert</a></li>
+            <li><a href="/faq">FAQ Update</a></li>
+            <li><a href="/crop-info">Crop Info</a></li>
+            <li><a href="/enrollfarmer">Enroll Farmer</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="msp_storage">
+        <div class="msp_box">
+            <table>
+                <tr>
+                    <th colspan="4">Minimum Support Price</th>
+                </tr>
+                <tr>
+                    <th>Crop</th>
+                    <th>Price/quintal</th>
+                    <th>Crop</th>
+                    <th>Price/quintal</th>
+                </tr>
+                {% for x in range(0, 16, 2) %}
+                        <tr>
+                            <td>{{ rec[x][0] }}</td>
+                            <td>
+                                <form action="{{ url_for('msp_warehouse_update') }}" method="post">
+                                    <input type="hidden" value="msp" name="operate">
+                                    <input type="hidden" value="{{ rec[x][0] }}" name="hidden">
+                                    <input type="number" value="{{ rec[x][1] }}" name="newmsp" required>
+                                    <input type="submit" value="Update">
+                                </form>
+                            </td>
+                            <td>{{ rec[x + 1][0] }}</td>
+                            <td>
+                                <form action="{{ url_for('msp_warehouse_update') }}" method="post">
+                                    <input type="hidden" value="msp" name="operate">
+                                    <input type="hidden" value="{{ rec[x + 1][0] }}" name="hidden">
+                                    <input type="number" value="{{ rec[x + 1][1] }}" name="newmsp" required>
+                                    <input type="submit" value="Update">
+                                </form>
+                            </td>
+                        </tr>
+                {% endfor %}
+                <tr>
+                    <td>{{ rec[16][0] }}</td>
+                    <td>
+                        <form action="{{ url_for('msp_warehouse_update') }}" method="post">
+                            <input type="hidden" value="msp" name="operate">
+                            <input type="hidden" value="{{ rec[16][0] }}" name="hidden">
+                            <input type="number" value="{{ rec[16][1] }}" name="newmsp" required>
+                            <input type="submit" value="Update">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="warehouse_box">
+            <table>
+                <tr>
+                    <th colspan="4">Maharastra Warehouse</th>
+                </tr>
+                <tr>
+                    <th>Warehouse</th>
+                    <th>Storage in MT(Metric Ton)</th>
+                    <th>Available Storage(Metric Ton)</th>
+                    <th>Update Available storage</th>
+                </tr>
+                {% for items in wh %}
+                   <tr>
+                       <td>{{ items[0] }}</td>
+                       <td>{{ items[1] }}</td>
+                       <td>{{ items[2] }}</td>
+                       <td>
+                           <form action="{{ url_for('msp_warehouse_update') }}" method="post">
+                               <input type="hidden" value="warehouse" name="operate">
+                               <input type="hidden" value="{{ items[0] }}" name="hidden">
+                               <input type="number" value="{{ items[2] }}" name="newqty" required>
+                               <input type="submit" value="Update">
+                           </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <form action="{{ url_for('add_warehouse') }}" method="post">
+                        <td>
+                            <input type="text" name="crop" placeholder="Enter Crop" required>
+                        </td>
+                        <td>
+                            <input type="number" name="qty" placeholder="Enter qty" required>
+                        </td>
+                        <td>
+                            <input type="number" name="aqty" placeholder="Enter available qty" required style="width: 150px">
+                        </td>
+                        <td>
+                            <input type="submit" value="submit">
+                        </td>
+                    </form>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
